@@ -23,9 +23,6 @@ namespace CohaerensSharp.Forms
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.TecList". При необходимости она может быть перемещена или удалена.
             this.tecListTableAdapter.Fill(this.dataSet.TecList);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.TecList". При необходимости она может быть перемещена или удалена.
-            this.tecListTableAdapter.Fill(this.dataSet.TecList);
-
         }
 
         private void tsbClose_Click(object sender, EventArgs e)
@@ -46,7 +43,7 @@ namespace CohaerensSharp.Forms
         private void tsbGraph_Click(object sender, EventArgs e)
         {
             int index = (int)dataGridView1.SelectedCells[0].Value;
-            FormChart form = new FormChart(index);
+            FormTecChart form = new FormTecChart(index);
             form.MdiParent = this.MdiParent;
             form.WindowState = FormWindowState.Maximized;
             form.Show();

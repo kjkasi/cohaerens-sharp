@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace CohaerensSharp.Forms
 {
-    public partial class FormChart : Form
+    public partial class FormTecvChart : Form
     {
-        public FormChart()
+        public FormTecvChart()
         {
             InitializeComponent();
         }
 
-        public FormChart(int index)
+        public FormTecvChart(int index)
         {
             InitializeComponent();
-            chart1.DataSource = chartTableAdapter.GetData(index);
+            chart1.DataSource = chartvTableAdapter.GetData(index);
         }
 
         private void tsbClose_Click(object sender, EventArgs e)

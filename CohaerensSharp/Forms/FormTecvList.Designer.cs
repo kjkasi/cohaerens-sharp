@@ -1,6 +1,6 @@
 ﻿namespace CohaerensSharp.Forms
 {
-    partial class FormTecContent
+    partial class FormTecvList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,38 +29,64 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTecContent));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTecvList));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbContent = new System.Windows.Forms.ToolStripButton();
+            this.tsbChart = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.elDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.azDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.l1l2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p1p2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.validityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tecContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lowDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.highDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tecvListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new CohaerensSharp.DataSet();
-            this.tecContentTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecContentTableAdapter();
+            this.tecvListTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecvListTableAdapter();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tecContentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tecvListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbContent,
+            this.tsbChart,
+            this.toolStripSeparator1,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbContent
+            // 
+            this.tsbContent.Image = ((System.Drawing.Image)(resources.GetObject("tsbContent.Image")));
+            this.tsbContent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbContent.Name = "tsbContent";
+            this.tsbContent.Size = new System.Drawing.Size(71, 22);
+            this.tsbContent.Text = "Контент";
+            this.tsbContent.Click += new System.EventHandler(this.tsbContent_Click);
+            // 
+            // tsbChart
+            // 
+            this.tsbChart.Image = ((System.Drawing.Image)(resources.GetObject("tsbChart.Image")));
+            this.tsbChart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbChart.Name = "tsbChart";
+            this.tsbChart.Size = new System.Drawing.Size(68, 22);
+            this.tsbChart.Text = "График";
+            this.tsbChart.Click += new System.EventHandler(this.tsbChart_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbClose
             // 
@@ -88,14 +114,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.tsnDataGridViewTextBoxColumn,
-            this.hourDataGridViewTextBoxColumn,
-            this.elDataGridViewTextBoxColumn,
-            this.azDataGridViewTextBoxColumn,
-            this.l1l2DataGridViewTextBoxColumn,
-            this.p1p2DataGridViewTextBoxColumn,
-            this.validityDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tecContentBindingSource;
+            this.nameDataGridViewTextBoxColumn,
+            this.heightDataGridViewTextBoxColumn,
+            this.lowDataGridViewTextBoxColumn,
+            this.highDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.tecvListBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -110,85 +133,63 @@
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // tsnDataGridViewTextBoxColumn
+            // nameDataGridViewTextBoxColumn
             // 
-            this.tsnDataGridViewTextBoxColumn.DataPropertyName = "tsn";
-            this.tsnDataGridViewTextBoxColumn.HeaderText = "tsn";
-            this.tsnDataGridViewTextBoxColumn.Name = "tsnDataGridViewTextBoxColumn";
-            this.tsnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // hourDataGridViewTextBoxColumn
+            // heightDataGridViewTextBoxColumn
             // 
-            this.hourDataGridViewTextBoxColumn.DataPropertyName = "hour";
-            this.hourDataGridViewTextBoxColumn.HeaderText = "hour";
-            this.hourDataGridViewTextBoxColumn.Name = "hourDataGridViewTextBoxColumn";
-            this.hourDataGridViewTextBoxColumn.ReadOnly = true;
+            this.heightDataGridViewTextBoxColumn.DataPropertyName = "Height";
+            this.heightDataGridViewTextBoxColumn.HeaderText = "Height";
+            this.heightDataGridViewTextBoxColumn.Name = "heightDataGridViewTextBoxColumn";
+            this.heightDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // elDataGridViewTextBoxColumn
+            // lowDataGridViewTextBoxColumn
             // 
-            this.elDataGridViewTextBoxColumn.DataPropertyName = "el";
-            this.elDataGridViewTextBoxColumn.HeaderText = "el";
-            this.elDataGridViewTextBoxColumn.Name = "elDataGridViewTextBoxColumn";
-            this.elDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lowDataGridViewTextBoxColumn.DataPropertyName = "Low";
+            this.lowDataGridViewTextBoxColumn.HeaderText = "Low";
+            this.lowDataGridViewTextBoxColumn.Name = "lowDataGridViewTextBoxColumn";
+            this.lowDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // azDataGridViewTextBoxColumn
+            // highDataGridViewTextBoxColumn
             // 
-            this.azDataGridViewTextBoxColumn.DataPropertyName = "az";
-            this.azDataGridViewTextBoxColumn.HeaderText = "az";
-            this.azDataGridViewTextBoxColumn.Name = "azDataGridViewTextBoxColumn";
-            this.azDataGridViewTextBoxColumn.ReadOnly = true;
+            this.highDataGridViewTextBoxColumn.DataPropertyName = "High";
+            this.highDataGridViewTextBoxColumn.HeaderText = "High";
+            this.highDataGridViewTextBoxColumn.Name = "highDataGridViewTextBoxColumn";
+            this.highDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // l1l2DataGridViewTextBoxColumn
+            // tecvListBindingSource
             // 
-            this.l1l2DataGridViewTextBoxColumn.DataPropertyName = "l1l2";
-            this.l1l2DataGridViewTextBoxColumn.HeaderText = "l1l2";
-            this.l1l2DataGridViewTextBoxColumn.Name = "l1l2DataGridViewTextBoxColumn";
-            this.l1l2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // p1p2DataGridViewTextBoxColumn
-            // 
-            this.p1p2DataGridViewTextBoxColumn.DataPropertyName = "p1p2";
-            this.p1p2DataGridViewTextBoxColumn.HeaderText = "p1p2";
-            this.p1p2DataGridViewTextBoxColumn.Name = "p1p2DataGridViewTextBoxColumn";
-            this.p1p2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // validityDataGridViewTextBoxColumn
-            // 
-            this.validityDataGridViewTextBoxColumn.DataPropertyName = "validity";
-            this.validityDataGridViewTextBoxColumn.HeaderText = "validity";
-            this.validityDataGridViewTextBoxColumn.Name = "validityDataGridViewTextBoxColumn";
-            this.validityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tecContentBindingSource
-            // 
-            this.tecContentBindingSource.DataMember = "TecContent";
-            this.tecContentBindingSource.DataSource = this.dataSet;
+            this.tecvListBindingSource.DataMember = "TecvList";
+            this.tecvListBindingSource.DataSource = this.dataSet;
             // 
             // dataSet
             // 
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tecContentTableAdapter
+            // tecvListTableAdapter
             // 
-            this.tecContentTableAdapter.ClearBeforeFill = true;
+            this.tecvListTableAdapter.ClearBeforeFill = true;
             // 
-            // FormTecContent
+            // FormTecvList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "FormTecContent";
-            this.Text = "Контенет ПЭС";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormTecContent_Load);
+            this.Name = "FormTecvList";
+            this.Text = "Список вариации ПЭС";
+            this.Load += new System.EventHandler(this.FormTecvList_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tecContentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tecvListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,19 +199,19 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbClose;
+        private System.Windows.Forms.ToolStripButton tsbContent;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DataSet dataSet;
-        private System.Windows.Forms.BindingSource tecContentBindingSource;
-        private DataSetTableAdapters.TecContentTableAdapter tecContentTableAdapter;
+        private System.Windows.Forms.BindingSource tecvListBindingSource;
+        private DataSetTableAdapters.TecvListTableAdapter tecvListTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tsnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hourDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn elDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn azDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn l1l2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p1p2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn validityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn heightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lowDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn highDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton tsbChart;
+        private System.Windows.Forms.ToolStripButton tsbClose;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

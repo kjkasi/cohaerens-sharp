@@ -56,6 +56,14 @@ namespace CohaerensSharp
             form.Show();
         }
 
+        private void miTecv_Click(object sender, EventArgs e)
+        {
+            FormTecvList form = new FormTecvList();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
         private void miTecImport_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -111,9 +119,63 @@ namespace CohaerensSharp
             }
         }
 
-        private void miGraphTec_Click(object sender, EventArgs e)
+        private void miTecvImport_Click(object sender, EventArgs e)
         {
-            //
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string text = System.IO.File.ReadAllText(openFileDialog.FileName);
+                string[] data = text.Split('\n');
+
+                int height = int.Parse(data[0].Replace("- height of F2-layer maximum", "").Trim());
+                int low = int.Parse(data[1].Replace("- low filtering period, minutes", "").Trim());
+                int high = int.Parse(data[2].Replace("- high filtering period, minutes", "").Trim());
+
+                DataSet.TecvListRow tecvList;
+                tecvList = this.dataSet.TecvList.NewTecvListRow();
+                tecvList.Name = openFileDialog.SafeFileName;
+                tecvList.Height = height;
+                tecvList.Low = low;
+                tecvList.High = high;
+
+                this.dataSet.TecvList.Rows.Add(tecvList);
+                this.tecvListTableAdapter.Update(this.dataSet);
+
+                for (int i = 8; i < data.Length - 1; i++)
+                {
+                    double time_ut = double.Parse(data[i].Replace(".", ",").Substring(0, 9).Trim());
+                    double tec_filt_aver = double.Parse(data[i].Replace(".", ",").Substring(10, 8).Trim());
+                    double rms = double.Parse(data[i].Replace(".", ",").Substring(18, 8).Trim());
+                    double Xaver = double.Parse(data[i].Replace(".", ",").Substring(26, 9).Trim());
+                    double Yaver = double.Parse(data[i].Replace(".", ",").Substring(35, 9).Trim());
+                    double Hmax = double.Parse(data[i].Replace(".", ",").Substring(44, 9).Trim());
+                    double DHmax = double.Parse(data[i].Replace(".", ",").Substring(53, 9).Trim());
+                    double I0 = double.Parse(data[i].Replace(".", ",").Substring(62, 8).Trim());
+                    double DI0 = double.Parse(data[i].Replace(".", ",").Substring(70, 8).Trim());
+                    int N_of_Sats = int.Parse(data[i].Substring(78, 3).Trim());
+
+                    DataSet.TecvContentRow tecvContentRow;
+                    tecvContentRow = this.dataSet.TecvContent.NewTecvContentRow();
+                    tecvContentRow.Id = tecvList.Id;
+                    tecvContentRow.time_ut = time_ut;
+                    tecvContentRow.tec_filt_aver = tec_filt_aver;
+                    tecvContentRow.rms = rms;
+                    tecvContentRow.Xaver = Xaver;
+                    tecvContentRow.Yaver = Yaver;
+                    tecvContentRow.Hmax = Hmax;
+                    tecvContentRow.DHmax = DHmax;
+                    tecvContentRow.I0 = I0;
+                    tecvContentRow.DI0 = DI0;
+                    tecvContentRow.N_of_Sats = N_of_Sats;
+
+                    this.dataSet.TecvContent.Rows.Add(tecvContentRow);
+                    this.tecvContentTableAdapter.Update(this.dataSet);
+
+                }
+
+                MessageBox.Show("Файл " + openFileDialog.FileName + " импортирован!");
+            }
         }
+
+        
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CohaerensSharp.Forms
 {
-    partial class FormChart
+    partial class FormTecvChart
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChart));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTecvChart));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -38,13 +38,13 @@
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chartvBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new CohaerensSharp.DataSet();
-            this.chartTableAdapter = new CohaerensSharp.DataSetTableAdapters.ChartTableAdapter();
+            this.chartvTableAdapter = new CohaerensSharp.DataSetTableAdapters.ChartvTableAdapter();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartvBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // tsbClose
@@ -74,13 +74,13 @@
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 425);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 1;
             // 
             // chart1
             // 
             chartArea2.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea2);
-            this.chart1.DataSource = this.chartBindingSource;
+            this.chart1.DataSource = this.chartvBindingSource;
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
@@ -90,45 +90,45 @@
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series2.IsXValueIndexed = true;
             series2.Legend = "Legend1";
-            series2.Name = "l1l2";
+            series2.Name = "tec_filt_aver";
             series2.XValueMember = "qty";
-            series2.YValueMembers = "l1l2";
+            series2.YValueMembers = "tec_filt_aver";
             this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(800, 425);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            title2.Name = "Tec";
-            title2.Text = "Полное электронное содержание";
+            title2.Name = "Title1";
+            title2.Text = "Вариации полного электонного содержания";
             this.chart1.Titles.Add(title2);
             // 
-            // chartBindingSource
+            // chartvBindingSource
             // 
-            this.chartBindingSource.DataMember = "Chart";
-            this.chartBindingSource.DataSource = this.dataSet;
+            this.chartvBindingSource.DataMember = "Chartv";
+            this.chartvBindingSource.DataSource = this.dataSet;
             // 
             // dataSet
             // 
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // chartTableAdapter
+            // chartvTableAdapter
             // 
-            this.chartTableAdapter.ClearBeforeFill = true;
+            this.chartvTableAdapter.ClearBeforeFill = true;
             // 
-            // FormChart
+            // FormTecvChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "FormChart";
-            this.Text = "График ПЭС";
+            this.Name = "FormTecvChart";
+            this.Text = "График вариации ПЭС";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartvBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,12 +136,13 @@
         }
 
         #endregion
+
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.BindingSource chartBindingSource;
+        private System.Windows.Forms.BindingSource chartvBindingSource;
         private DataSet dataSet;
-        private DataSetTableAdapters.ChartTableAdapter chartTableAdapter;
+        private DataSetTableAdapters.ChartvTableAdapter chartvTableAdapter;
     }
 }
