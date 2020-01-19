@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
 [assembly: AssemblyTitle("CohaerensSharp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Research work https://github.com/kjkasi/cohaerens-sharp")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CohaerensSharp")]
