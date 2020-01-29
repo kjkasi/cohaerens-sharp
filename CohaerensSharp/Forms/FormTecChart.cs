@@ -27,5 +27,13 @@ namespace CohaerensSharp.Forms
         {
             this.Close();
         }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                chart1.SaveImage(saveFileDialog1.FileName, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+            }
+        }
     }
 }
