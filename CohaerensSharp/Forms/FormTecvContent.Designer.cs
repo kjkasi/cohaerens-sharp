@@ -34,6 +34,9 @@
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tecvContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new CohaerensSharp.DataSet();
+            this.tecvContentTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecvContentTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tecfiltaverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +48,6 @@
             this.i0DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dI0DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nofSatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tecvContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new CohaerensSharp.DataSet();
-            this.tecvContentTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecvContentTableAdapter();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,10 +67,11 @@
             // 
             // tsbClose
             // 
+            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(73, 22);
+            this.tsbClose.Size = new System.Drawing.Size(57, 22);
             this.tsbClose.Text = "Закрыть";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -109,10 +110,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 425);
             this.dataGridView1.TabIndex = 0;
             // 
+            // tecvContentBindingSource
+            // 
+            this.tecvContentBindingSource.DataMember = "TecvContent";
+            this.tecvContentBindingSource.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tecvContentTableAdapter
+            // 
+            this.tecvContentTableAdapter.ClearBeforeFill = true;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Номер";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -185,20 +200,6 @@
             this.nofSatsDataGridViewTextBoxColumn.HeaderText = "N_of_Sats";
             this.nofSatsDataGridViewTextBoxColumn.Name = "nofSatsDataGridViewTextBoxColumn";
             this.nofSatsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tecvContentBindingSource
-            // 
-            this.tecvContentBindingSource.DataMember = "TecvContent";
-            this.tecvContentBindingSource.DataSource = this.dataSet;
-            // 
-            // dataSet
-            // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tecvContentTableAdapter
-            // 
-            this.tecvContentTableAdapter.ClearBeforeFill = true;
             // 
             // FormTecvContent
             // 

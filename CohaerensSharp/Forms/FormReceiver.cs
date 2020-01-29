@@ -21,7 +21,19 @@ namespace CohaerensSharp.Forms
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.Receiver". При необходимости она может быть перемещена или удалена.
             this.receiverTableAdapter.Fill(this.dataSet.Receiver);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.Receiver". При необходимости она может быть перемещена или удалена.
+            this.receiverTableAdapter.Fill(this.dataSet.Receiver);
 
+        }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            this.receiverTableAdapter.Update(this.dataSet);
         }
     }
 }

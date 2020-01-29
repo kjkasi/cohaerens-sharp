@@ -34,6 +34,9 @@
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tecContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new CohaerensSharp.DataSet();
+            this.tecContentTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecContentTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,9 +45,6 @@
             this.l1l2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p1p2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.validityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tecContentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new CohaerensSharp.DataSet();
-            this.tecContentTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecContentTableAdapter();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,10 +64,11 @@
             // 
             // tsbClose
             // 
+            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(73, 22);
+            this.tsbClose.Size = new System.Drawing.Size(57, 22);
             this.tsbClose.Text = "Закрыть";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -103,10 +104,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 425);
             this.dataGridView1.TabIndex = 0;
             // 
+            // tecContentBindingSource
+            // 
+            this.tecContentBindingSource.DataMember = "TecContent";
+            this.tecContentBindingSource.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tecContentTableAdapter
+            // 
+            this.tecContentTableAdapter.ClearBeforeFill = true;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Номер";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -158,20 +173,6 @@
             this.validityDataGridViewTextBoxColumn.HeaderText = "validity";
             this.validityDataGridViewTextBoxColumn.Name = "validityDataGridViewTextBoxColumn";
             this.validityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tecContentBindingSource
-            // 
-            this.tecContentBindingSource.DataMember = "TecContent";
-            this.tecContentBindingSource.DataSource = this.dataSet;
-            // 
-            // dataSet
-            // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tecContentTableAdapter
-            // 
-            this.tecContentTableAdapter.ClearBeforeFill = true;
             // 
             // FormTecContent
             // 

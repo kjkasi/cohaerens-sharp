@@ -21,7 +21,19 @@ namespace CohaerensSharp.Forms
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.System". При необходимости она может быть перемещена или удалена.
             this.systemTableAdapter.Fill(this.dataSet.System);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.System". При необходимости она может быть перемещена или удалена.
+            this.systemTableAdapter.Fill(this.dataSet.System);
 
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            this.systemTableAdapter.Update(this.dataSet);
+        }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

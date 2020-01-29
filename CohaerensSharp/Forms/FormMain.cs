@@ -104,13 +104,13 @@ namespace CohaerensSharp
                     DataSet.TecContentRow contentRow;
                     contentRow = this.dataSet.TecContent.NewTecContentRow();
                     contentRow.Id = listRow.Id;
-                    contentRow.tsn = tsn;
-                    contentRow.hour = hour;
-                    contentRow.el = el;
-                    contentRow.az = az;
-                    contentRow.l1l2 = l1l2;
-                    contentRow.p1p2 = p1p2;
-                    contentRow.validity = validity;
+                    contentRow.tsn = int.Parse(tsn);
+                    contentRow.hour = double.Parse(hour);
+                    contentRow.el = double.Parse(el);
+                    contentRow.az = double.Parse(az);
+                    contentRow.l1l2 = double.Parse(l1l2);
+                    contentRow.p1p2 = double.Parse(p1p2);
+                    contentRow.validity = int.Parse(validity);
                     this.dataSet.TecContent.Rows.Add(contentRow);
                 }
 
@@ -176,6 +176,20 @@ namespace CohaerensSharp
             }
         }
 
-        
+        private void miAdvice_Click(object sender, EventArgs e)
+        {
+            FormAdvice form = new FormAdvice();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
+        private void miWeather_Click(object sender, EventArgs e)
+        {
+            FormWeather form = new FormWeather();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
     }
 }

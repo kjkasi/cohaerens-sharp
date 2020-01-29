@@ -1,6 +1,6 @@
 ﻿namespace CohaerensSharp.Forms
 {
-    partial class FormSystem
+    partial class FormWeather
     {
         /// <summary>
         /// Required designer variable.
@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSystem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWeather));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataSet = new CohaerensSharp.DataSet();
-            this.systemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.systemTableAdapter = new CohaerensSharp.DataSetTableAdapters.SystemTableAdapter();
+            this.weatherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weatherTableAdapter = new CohaerensSharp.DataSetTableAdapters.WeatherTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desciptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pressureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.systemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -90,9 +91,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.desciptionDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.systemBindingSource;
+            this.tempDataGridViewTextBoxColumn,
+            this.pressureDataGridViewTextBoxColumn,
+            this.rHDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.weatherBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
@@ -104,14 +106,14 @@
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // systemBindingSource
+            // weatherBindingSource
             // 
-            this.systemBindingSource.DataMember = "System";
-            this.systemBindingSource.DataSource = this.dataSet;
+            this.weatherBindingSource.DataMember = "Weather";
+            this.weatherBindingSource.DataSource = this.dataSet;
             // 
-            // systemTableAdapter
+            // weatherTableAdapter
             // 
-            this.systemTableAdapter.ClearBeforeFill = true;
+            this.weatherTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -120,34 +122,39 @@
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // tempDataGridViewTextBoxColumn
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Имя";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.tempDataGridViewTextBoxColumn.DataPropertyName = "Temp";
+            this.tempDataGridViewTextBoxColumn.HeaderText = "Температура";
+            this.tempDataGridViewTextBoxColumn.Name = "tempDataGridViewTextBoxColumn";
             // 
-            // desciptionDataGridViewTextBoxColumn
+            // pressureDataGridViewTextBoxColumn
             // 
-            this.desciptionDataGridViewTextBoxColumn.DataPropertyName = "Desciption";
-            this.desciptionDataGridViewTextBoxColumn.HeaderText = "Описание";
-            this.desciptionDataGridViewTextBoxColumn.Name = "desciptionDataGridViewTextBoxColumn";
+            this.pressureDataGridViewTextBoxColumn.DataPropertyName = "Pressure";
+            this.pressureDataGridViewTextBoxColumn.HeaderText = "Давление";
+            this.pressureDataGridViewTextBoxColumn.Name = "pressureDataGridViewTextBoxColumn";
             // 
-            // FormSystem
+            // rHDataGridViewTextBoxColumn
+            // 
+            this.rHDataGridViewTextBoxColumn.DataPropertyName = "RH";
+            this.rHDataGridViewTextBoxColumn.HeaderText = "Относительная влажность";
+            this.rHDataGridViewTextBoxColumn.Name = "rHDataGridViewTextBoxColumn";
+            // 
+            // FormWeather
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "FormSystem";
-            this.Text = "Системы связи";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormSystem_Load);
+            this.Name = "FormWeather";
+            this.Text = "Погодные условия";
+            this.Load += new System.EventHandler(this.FormWeather_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.systemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,10 +168,11 @@
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DataSet dataSet;
-        private System.Windows.Forms.BindingSource systemBindingSource;
-        private DataSetTableAdapters.SystemTableAdapter systemTableAdapter;
+        private System.Windows.Forms.BindingSource weatherBindingSource;
+        private DataSetTableAdapters.WeatherTableAdapter weatherTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn desciptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tempDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pressureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rHDataGridViewTextBoxColumn;
     }
 }

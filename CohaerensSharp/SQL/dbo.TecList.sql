@@ -10,11 +10,11 @@ GO
 ALTER TABLE [dbo].[TecList] DROP CONSTRAINT [FK_TecList_Place]
 GO
 
-/****** Object:  Table [dbo].[TecList]    Script Date: 19.01.2020 19:07:26 ******/
+/****** Object:  Table [dbo].[TecList]    Script Date: 29.01.2020 13:06:48 ******/
 DROP TABLE [dbo].[TecList]
 GO
 
-/****** Object:  Table [dbo].[TecList]    Script Date: 19.01.2020 19:07:26 ******/
+/****** Object:  Table [dbo].[TecList]    Script Date: 29.01.2020 13:06:48 ******/
 SET ANSI_NULLS ON
 GO
 

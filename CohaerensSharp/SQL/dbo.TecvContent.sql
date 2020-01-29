@@ -1,11 +1,11 @@
 USE [CohaerensSharp]
 GO
 
-/****** Object:  Table [dbo].[TecvContent]    Script Date: 19.01.2020 21:15:10 ******/
+/****** Object:  Table [dbo].[TecvContent]    Script Date: 29.01.2020 13:07:01 ******/
 DROP TABLE [dbo].[TecvContent]
 GO
 
-/****** Object:  Table [dbo].[TecvContent]    Script Date: 19.01.2020 21:15:10 ******/
+/****** Object:  Table [dbo].[TecvContent]    Script Date: 29.01.2020 13:07:01 ******/
 SET ANSI_NULLS ON
 GO
 

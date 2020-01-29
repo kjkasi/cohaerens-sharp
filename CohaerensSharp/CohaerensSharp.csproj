@@ -70,6 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAdvice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAdvice.Designer.cs">
+      <DependentUpon>FormAdvice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormTecChart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,8 +136,17 @@
     <Compile Include="Forms\FormTecvList.Designer.cs">
       <DependentUpon>FormTecvList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormWeather.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormWeather.Designer.cs">
+      <DependentUpon>FormWeather.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormAdvice.resx">
+      <DependentUpon>FormAdvice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormTecChart.resx">
       <DependentUpon>FormTecChart.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormTecvList.resx">
       <DependentUpon>FormTecvList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormWeather.resx">
+      <DependentUpon>FormWeather.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

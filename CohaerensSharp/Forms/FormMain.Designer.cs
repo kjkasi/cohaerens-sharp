@@ -43,6 +43,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.slCopy = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.miAdvice = new System.Windows.Forms.ToolStripMenuItem();
+            this.miWeather = new System.Windows.Forms.ToolStripMenuItem();
             this.dataSet = new CohaerensSharp.DataSet();
             this.tecListTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecListTableAdapter();
             this.tecContentTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecContentTableAdapter();
@@ -57,7 +59,8 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miFile,
-            this.miOther});
+            this.miOther,
+            this.miAdvice});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(800, 24);
@@ -108,7 +111,8 @@
             this.miSystem,
             this.miReceiver,
             this.miTEC,
-            this.miTecv});
+            this.miTecv,
+            this.miWeather});
             this.miOther.Name = "miOther";
             this.miOther.Size = new System.Drawing.Size(94, 20);
             this.miOther.Text = "&Справочники";
@@ -116,38 +120,35 @@
             // miPlace
             // 
             this.miPlace.Name = "miPlace";
-            this.miPlace.Size = new System.Drawing.Size(157, 22);
+            this.miPlace.Size = new System.Drawing.Size(180, 22);
             this.miPlace.Text = "Места";
-            this.miPlace.Visible = false;
             this.miPlace.Click += new System.EventHandler(this.miPlace_Click);
             // 
             // miSystem
             // 
             this.miSystem.Name = "miSystem";
-            this.miSystem.Size = new System.Drawing.Size(157, 22);
+            this.miSystem.Size = new System.Drawing.Size(180, 22);
             this.miSystem.Text = "Системы связи";
-            this.miSystem.Visible = false;
             this.miSystem.Click += new System.EventHandler(this.miSystem_Click);
             // 
             // miReceiver
             // 
             this.miReceiver.Name = "miReceiver";
-            this.miReceiver.Size = new System.Drawing.Size(157, 22);
+            this.miReceiver.Size = new System.Drawing.Size(180, 22);
             this.miReceiver.Text = "Приемники";
-            this.miReceiver.Visible = false;
             this.miReceiver.Click += new System.EventHandler(this.miReceiver_Click);
             // 
             // miTEC
             // 
             this.miTEC.Name = "miTEC";
-            this.miTEC.Size = new System.Drawing.Size(157, 22);
+            this.miTEC.Size = new System.Drawing.Size(180, 22);
             this.miTEC.Text = "ПЭС";
             this.miTEC.Click += new System.EventHandler(this.miTEC_Click);
             // 
             // miTecv
             // 
             this.miTecv.Name = "miTecv";
-            this.miTecv.Size = new System.Drawing.Size(157, 22);
+            this.miTecv.Size = new System.Drawing.Size(180, 22);
             this.miTecv.Text = "Вариации ПЭС";
             this.miTecv.Click += new System.EventHandler(this.miTecv_Click);
             // 
@@ -171,6 +172,20 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "dat файлы|*.dat";
+            // 
+            // miAdvice
+            // 
+            this.miAdvice.Name = "miAdvice";
+            this.miAdvice.Size = new System.Drawing.Size(100, 20);
+            this.miAdvice.Text = "&Рекомендации";
+            this.miAdvice.Click += new System.EventHandler(this.miAdvice_Click);
+            // 
+            // miWeather
+            // 
+            this.miWeather.Name = "miWeather";
+            this.miWeather.Size = new System.Drawing.Size(180, 22);
+            this.miWeather.Text = "Погодные условия";
+            this.miWeather.Click += new System.EventHandler(this.miWeather_Click);
             // 
             // dataSet
             // 
@@ -236,6 +251,8 @@
         private System.Windows.Forms.ToolStripMenuItem miTecv;
         private DataSetTableAdapters.TecvListTableAdapter tecvListTableAdapter;
         private DataSetTableAdapters.TecvContentTableAdapter tecvContentTableAdapter;
+        private System.Windows.Forms.ToolStripMenuItem miAdvice;
+        private System.Windows.Forms.ToolStripMenuItem miWeather;
     }
 }
 

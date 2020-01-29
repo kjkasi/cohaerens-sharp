@@ -23,12 +23,19 @@ namespace CohaerensSharp.Forms
             this.placeTableAdapter.Fill(this.dataSet.Place);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.Place". При необходимости она может быть перемещена или удалена.
             this.placeTableAdapter.Fill(this.dataSet.Place);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.Place". При необходимости она может быть перемещена или удалена.
+            this.placeTableAdapter.Fill(this.dataSet.Place);
 
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            this.placeTableAdapter.Update(this.dataSet);
         }
     }
 }

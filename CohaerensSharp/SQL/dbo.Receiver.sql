@@ -1,11 +1,11 @@
 USE [CohaerensSharp]
 GO
 
-/****** Object:  Table [dbo].[Receiver]    Script Date: 19.01.2020 19:09:01 ******/
+/****** Object:  Table [dbo].[Receiver]    Script Date: 29.01.2020 13:05:55 ******/
 DROP TABLE [dbo].[Receiver]
 GO
 
-/****** Object:  Table [dbo].[Receiver]    Script Date: 19.01.2020 19:09:01 ******/
+/****** Object:  Table [dbo].[Receiver]    Script Date: 29.01.2020 13:05:55 ******/
 SET ANSI_NULLS ON
 GO
 

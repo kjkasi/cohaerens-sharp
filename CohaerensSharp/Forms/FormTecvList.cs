@@ -19,6 +19,16 @@ namespace CohaerensSharp.Forms
 
         private void FormTecvList_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.Receiver". При необходимости она может быть перемещена или удалена.
+            this.receiverTableAdapter.Fill(this.dataSet.Receiver);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.System". При необходимости она может быть перемещена или удалена.
+            this.systemTableAdapter.Fill(this.dataSet.System);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.Place". При необходимости она может быть перемещена или удалена.
+            this.placeTableAdapter.Fill(this.dataSet.Place);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.TecvList". При необходимости она может быть перемещена или удалена.
+            this.tecvListTableAdapter.Fill(this.dataSet.TecvList);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.TecvList". При необходимости она может быть перемещена или удалена.
+            this.tecvListTableAdapter.Fill(this.dataSet.TecvList);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.TecvList". При необходимости она может быть перемещена или удалена.
             this.tecvListTableAdapter.Fill(this.dataSet.TecvList);
 
@@ -45,6 +55,11 @@ namespace CohaerensSharp.Forms
         private void tsbClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            this.tecvListTableAdapter.Update(this.dataSet);
         }
     }
 }
