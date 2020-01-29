@@ -3724,9 +3724,7 @@ namespace CohaerensSharp {
             
             private global::System.Data.DataColumn columnvalidity;
             
-            private global::System.Data.DataColumn columnqty;
-            
-            private global::System.Data.DataColumn columnnum;
+            private global::System.Data.DataColumn columnl1l2_avg;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3827,17 +3825,9 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn qtyColumn {
+            public global::System.Data.DataColumn l1l2_avgColumn {
                 get {
-                    return this.columnqty;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn numColumn {
-                get {
-                    return this.columnnum;
+                    return this.columnl1l2_avg;
                 }
             }
             
@@ -3878,7 +3868,7 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ChartRow AddChartRow(int Id, int tsn, double hour, double el, double az, double l1l2, double p1p2, int validity, int qty, long num) {
+            public ChartRow AddChartRow(int Id, int tsn, double hour, double el, double az, double l1l2, double p1p2, int validity, double l1l2_avg) {
                 ChartRow rowChartRow = ((ChartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -3889,8 +3879,7 @@ namespace CohaerensSharp {
                         l1l2,
                         p1p2,
                         validity,
-                        qty,
-                        num};
+                        l1l2_avg};
                 rowChartRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowChartRow);
                 return rowChartRow;
@@ -3921,8 +3910,7 @@ namespace CohaerensSharp {
                 this.columnl1l2 = base.Columns["l1l2"];
                 this.columnp1p2 = base.Columns["p1p2"];
                 this.columnvalidity = base.Columns["validity"];
-                this.columnqty = base.Columns["qty"];
-                this.columnnum = base.Columns["num"];
+                this.columnl1l2_avg = base.Columns["l1l2_avg"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3944,14 +3932,11 @@ namespace CohaerensSharp {
                 base.Columns.Add(this.columnp1p2);
                 this.columnvalidity = new global::System.Data.DataColumn("validity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvalidity);
-                this.columnqty = new global::System.Data.DataColumn("qty", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnqty);
-                this.columnnum = new global::System.Data.DataColumn("num", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnum);
+                this.columnl1l2_avg = new global::System.Data.DataColumn("l1l2_avg", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnl1l2_avg);
                 this.columnId.AllowDBNull = false;
                 this.columnhour.AllowDBNull = false;
-                this.columnqty.ReadOnly = true;
-                this.columnnum.ReadOnly = true;
+                this.columnl1l2_avg.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4107,9 +4092,7 @@ namespace CohaerensSharp {
             
             private global::System.Data.DataColumn columnN_of_Sats;
             
-            private global::System.Data.DataColumn columnqty;
-            
-            private global::System.Data.DataColumn columnnum;
+            private global::System.Data.DataColumn columntec_filt_aver_avg;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4234,17 +4217,9 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn qtyColumn {
+            public global::System.Data.DataColumn tec_filt_aver_avgColumn {
                 get {
-                    return this.columnqty;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn numColumn {
-                get {
-                    return this.columnnum;
+                    return this.columntec_filt_aver_avg;
                 }
             }
             
@@ -4285,7 +4260,7 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ChartvRow AddChartvRow(int Id, double time_ut, double tec_filt_aver, double rms, double Xaver, double Yaver, double Hmax, double DHmax, double I0, double DI0, int N_of_Sats, int qty, long num) {
+            public ChartvRow AddChartvRow(int Id, double time_ut, double tec_filt_aver, double rms, double Xaver, double Yaver, double Hmax, double DHmax, double I0, double DI0, int N_of_Sats, double tec_filt_aver_avg) {
                 ChartvRow rowChartvRow = ((ChartvRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -4299,8 +4274,7 @@ namespace CohaerensSharp {
                         I0,
                         DI0,
                         N_of_Sats,
-                        qty,
-                        num};
+                        tec_filt_aver_avg};
                 rowChartvRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowChartvRow);
                 return rowChartvRow;
@@ -4334,8 +4308,7 @@ namespace CohaerensSharp {
                 this.columnI0 = base.Columns["I0"];
                 this.columnDI0 = base.Columns["DI0"];
                 this.columnN_of_Sats = base.Columns["N_of_Sats"];
-                this.columnqty = base.Columns["qty"];
-                this.columnnum = base.Columns["num"];
+                this.columntec_filt_aver_avg = base.Columns["tec_filt_aver_avg"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4363,13 +4336,10 @@ namespace CohaerensSharp {
                 base.Columns.Add(this.columnDI0);
                 this.columnN_of_Sats = new global::System.Data.DataColumn("N_of_Sats", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnN_of_Sats);
-                this.columnqty = new global::System.Data.DataColumn("qty", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnqty);
-                this.columnnum = new global::System.Data.DataColumn("num", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnum);
+                this.columntec_filt_aver_avg = new global::System.Data.DataColumn("tec_filt_aver_avg", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntec_filt_aver_avg);
                 this.columnId.AllowDBNull = false;
-                this.columnqty.ReadOnly = true;
-                this.columnnum.ReadOnly = true;
+                this.columntec_filt_aver_avg.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6333,33 +6303,17 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int qty {
+            public double l1l2_avg {
                 get {
                     try {
-                        return ((int)(this[this.tableChart.qtyColumn]));
+                        return ((double)(this[this.tableChart.l1l2_avgColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'qty\' в таблице \'Chart\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'l1l2_avg\' в таблице \'Chart\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableChart.qtyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long num {
-                get {
-                    try {
-                        return ((long)(this[this.tableChart.numColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'num\' в таблице \'Chart\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableChart.numColumn] = value;
+                    this[this.tableChart.l1l2_avgColumn] = value;
                 }
             }
             
@@ -6437,26 +6391,14 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsqtyNull() {
-                return this.IsNull(this.tableChart.qtyColumn);
+            public bool Isl1l2_avgNull() {
+                return this.IsNull(this.tableChart.l1l2_avgColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetqtyNull() {
-                this[this.tableChart.qtyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsnumNull() {
-                return this.IsNull(this.tableChart.numColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetnumNull() {
-                this[this.tableChart.numColumn] = global::System.Convert.DBNull;
+            public void Setl1l2_avgNull() {
+                this[this.tableChart.l1l2_avgColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6647,33 +6589,17 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int qty {
+            public double tec_filt_aver_avg {
                 get {
                     try {
-                        return ((int)(this[this.tableChartv.qtyColumn]));
+                        return ((double)(this[this.tableChartv.tec_filt_aver_avgColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'qty\' в таблице \'Chartv\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'tec_filt_aver_avg\' в таблице \'Chartv\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableChartv.qtyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long num {
-                get {
-                    try {
-                        return ((long)(this[this.tableChartv.numColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'num\' в таблице \'Chartv\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableChartv.numColumn] = value;
+                    this[this.tableChartv.tec_filt_aver_avgColumn] = value;
                 }
             }
             
@@ -6799,26 +6725,14 @@ namespace CohaerensSharp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsqtyNull() {
-                return this.IsNull(this.tableChartv.qtyColumn);
+            public bool Istec_filt_aver_avgNull() {
+                return this.IsNull(this.tableChartv.tec_filt_aver_avgColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetqtyNull() {
-                this[this.tableChartv.qtyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsnumNull() {
-                return this.IsNull(this.tableChartv.numColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetnumNull() {
-                this[this.tableChartv.numColumn] = global::System.Convert.DBNull;
+            public void Settec_filt_aver_avgNull() {
+                this[this.tableChartv.tec_filt_aver_avgColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10978,8 +10892,7 @@ SELECT Id, Temp, Pressure, RH FROM Weather WHERE (Id = @Id)";
             tableMapping.ColumnMappings.Add("l1l2", "l1l2");
             tableMapping.ColumnMappings.Add("p1p2", "p1p2");
             tableMapping.ColumnMappings.Add("validity", "validity");
-            tableMapping.ColumnMappings.Add("qty", "qty");
-            tableMapping.ColumnMappings.Add("num", "num");
+            tableMapping.ColumnMappings.Add("l1l2_avg", "l1l2_avg");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -11171,8 +11084,7 @@ SELECT Id, Temp, Pressure, RH FROM Weather WHERE (Id = @Id)";
             tableMapping.ColumnMappings.Add("I0", "I0");
             tableMapping.ColumnMappings.Add("DI0", "DI0");
             tableMapping.ColumnMappings.Add("N_of_Sats", "N_of_Sats");
-            tableMapping.ColumnMappings.Add("qty", "qty");
-            tableMapping.ColumnMappings.Add("num", "num");
+            tableMapping.ColumnMappings.Add("tec_filt_aver_avg", "tec_filt_aver_avg");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
