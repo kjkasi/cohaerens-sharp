@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTecList));
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.tsbSave = new System.Windows.Forms.ToolStripButton();
-            this.tsbContent = new System.Windows.Forms.ToolStripButton();
-            this.tsbGraph = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +51,12 @@
             this.placeTableAdapter = new CohaerensSharp.DataSetTableAdapters.PlaceTableAdapter();
             this.systemTableAdapter = new CohaerensSharp.DataSetTableAdapters.SystemTableAdapter();
             this.receiverTableAdapter = new CohaerensSharp.DataSetTableAdapters.ReceiverTableAdapter();
-            this.toolStrip.SuspendLayout();
+            this.tsbSave = new System.Windows.Forms.ToolStripButton();
+            this.tsbContent = new System.Windows.Forms.ToolStripButton();
+            this.tsbGraph = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
@@ -65,66 +64,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.systemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiverBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tecListBindingSource)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip
-            // 
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSave,
-            this.tsbContent,
-            this.tsbGraph,
-            this.toolStripSeparator1,
-            this.tsbClose});
-            this.toolStrip.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip.TabIndex = 1;
-            this.toolStrip.Text = "toolStrip1";
-            // 
-            // tsbSave
-            // 
-            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
-            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(70, 22);
-            this.tsbSave.Text = "Сохранить";
-            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
-            // 
-            // tsbContent
-            // 
-            this.tsbContent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbContent.Image = ((System.Drawing.Image)(resources.GetObject("tsbContent.Image")));
-            this.tsbContent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbContent.Name = "tsbContent";
-            this.tsbContent.Size = new System.Drawing.Size(55, 22);
-            this.tsbContent.Text = "Контент";
-            this.tsbContent.Click += new System.EventHandler(this.tsbContent_Click);
-            // 
-            // tsbGraph
-            // 
-            this.tsbGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbGraph.Image = ((System.Drawing.Image)(resources.GetObject("tsbGraph.Image")));
-            this.tsbGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbGraph.Name = "tsbGraph";
-            this.tsbGraph.Size = new System.Drawing.Size(52, 22);
-            this.tsbGraph.Text = "График";
-            this.tsbGraph.Click += new System.EventHandler(this.tsbGraph_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(57, 22);
-            this.tsbClose.Text = "Закрыть";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // panel1
             // 
@@ -274,6 +215,65 @@
             // 
             this.receiverTableAdapter.ClearBeforeFill = true;
             // 
+            // tsbSave
+            // 
+            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
+            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSave.Name = "tsbSave";
+            this.tsbSave.Size = new System.Drawing.Size(70, 22);
+            this.tsbSave.Text = "Сохранить";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
+            // 
+            // tsbContent
+            // 
+            this.tsbContent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbContent.Image = ((System.Drawing.Image)(resources.GetObject("tsbContent.Image")));
+            this.tsbContent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbContent.Name = "tsbContent";
+            this.tsbContent.Size = new System.Drawing.Size(55, 22);
+            this.tsbContent.Text = "Контент";
+            this.tsbContent.Click += new System.EventHandler(this.tsbContent_Click);
+            // 
+            // tsbGraph
+            // 
+            this.tsbGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbGraph.Image = ((System.Drawing.Image)(resources.GetObject("tsbGraph.Image")));
+            this.tsbGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGraph.Name = "tsbGraph";
+            this.tsbGraph.Size = new System.Drawing.Size(52, 22);
+            this.tsbGraph.Text = "График";
+            this.tsbGraph.Click += new System.EventHandler(this.tsbGraph_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbClose
+            // 
+            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
+            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClose.Name = "tsbClose";
+            this.tsbClose.Size = new System.Drawing.Size(57, 22);
+            this.tsbClose.Text = "Закрыть";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbSave,
+            this.tsbContent,
+            this.tsbGraph,
+            this.toolStripSeparator1,
+            this.tsbClose});
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip.TabIndex = 1;
+            this.toolStrip.Text = "toolStrip1";
+            // 
             // FormTecList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,8 +285,6 @@
             this.Text = "Список ПЭС";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormTecList_Load);
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
@@ -294,17 +292,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.systemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiverBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tecListBindingSource)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton tsbContent;
-        private System.Windows.Forms.ToolStripButton tsbGraph;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DataSet dataSet;
@@ -312,7 +307,6 @@
         private DataSetTableAdapters.TecListTableAdapter tecListTableAdapter;
         private System.Windows.Forms.BindingSource placeBindingSource;
         private DataSetTableAdapters.PlaceTableAdapter placeTableAdapter;
-        private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.BindingSource systemBindingSource;
         private DataSetTableAdapters.SystemTableAdapter systemTableAdapter;
         private System.Windows.Forms.BindingSource receiverBindingSource;
@@ -327,5 +321,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn siteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton tsbSave;
+        private System.Windows.Forms.ToolStripButton tsbContent;
+        private System.Windows.Forms.ToolStripButton tsbGraph;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbClose;
+        private System.Windows.Forms.ToolStrip toolStrip;
     }
 }

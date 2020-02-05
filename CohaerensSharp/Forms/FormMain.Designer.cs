@@ -40,11 +40,11 @@
             this.miReceiver = new System.Windows.Forms.ToolStripMenuItem();
             this.miTEC = new System.Windows.Forms.ToolStripMenuItem();
             this.miTecv = new System.Windows.Forms.ToolStripMenuItem();
+            this.miWeather = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAdvice = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.slCopy = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.miAdvice = new System.Windows.Forms.ToolStripMenuItem();
-            this.miWeather = new System.Windows.Forms.ToolStripMenuItem();
             this.dataSet = new CohaerensSharp.DataSet();
             this.tecListTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecListTableAdapter();
             this.tecContentTableAdapter = new CohaerensSharp.DataSetTableAdapters.TecContentTableAdapter();
@@ -90,6 +90,7 @@
             this.miTecvImport.Name = "miTecvImport";
             this.miTecvImport.Size = new System.Drawing.Size(201, 22);
             this.miTecvImport.Text = "Импорт вариации ПЭС";
+            this.miTecvImport.Visible = false;
             this.miTecvImport.Click += new System.EventHandler(this.miTecvImport_Click);
             // 
             // toolStripSeparator1
@@ -102,7 +103,7 @@
             this.miExit.Name = "miExit";
             this.miExit.Size = new System.Drawing.Size(201, 22);
             this.miExit.Text = "&Выход";
-            this.miExit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.miExit.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // miOther
             // 
@@ -150,7 +151,24 @@
             this.miTecv.Name = "miTecv";
             this.miTecv.Size = new System.Drawing.Size(180, 22);
             this.miTecv.Text = "Вариации ПЭС";
+            this.miTecv.Visible = false;
             this.miTecv.Click += new System.EventHandler(this.miTecv_Click);
+            // 
+            // miWeather
+            // 
+            this.miWeather.Name = "miWeather";
+            this.miWeather.Size = new System.Drawing.Size(180, 22);
+            this.miWeather.Text = "Погодные условия";
+            this.miWeather.Visible = false;
+            this.miWeather.Click += new System.EventHandler(this.miWeather_Click);
+            // 
+            // miAdvice
+            // 
+            this.miAdvice.Name = "miAdvice";
+            this.miAdvice.Size = new System.Drawing.Size(100, 20);
+            this.miAdvice.Text = "&Рекомендации";
+            this.miAdvice.Visible = false;
+            this.miAdvice.Click += new System.EventHandler(this.miAdvice_Click);
             // 
             // statusStrip
             // 
@@ -172,20 +190,7 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "dat файлы|*.dat";
-            // 
-            // miAdvice
-            // 
-            this.miAdvice.Name = "miAdvice";
-            this.miAdvice.Size = new System.Drawing.Size(100, 20);
-            this.miAdvice.Text = "&Рекомендации";
-            this.miAdvice.Click += new System.EventHandler(this.miAdvice_Click);
-            // 
-            // miWeather
-            // 
-            this.miWeather.Name = "miWeather";
-            this.miWeather.Size = new System.Drawing.Size(180, 22);
-            this.miWeather.Text = "Погодные условия";
-            this.miWeather.Click += new System.EventHandler(this.miWeather_Click);
+            this.openFileDialog.Multiselect = true;
             // 
             // dataSet
             // 
@@ -218,7 +223,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FormMain";
-            this.Text = "Программа анализа сбоев";
+            this.Text = "Автоматизированная система для анализа ПЭС";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);

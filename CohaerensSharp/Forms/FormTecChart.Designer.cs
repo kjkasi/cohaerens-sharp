@@ -41,9 +41,9 @@
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.chartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new CohaerensSharp.DataSet();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.chartTableAdapter = new CohaerensSharp.DataSetTableAdapters.ChartTableAdapter();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -101,8 +101,10 @@
             // 
             // chart1
             // 
-            chartArea1.AxisX.Title = "Время наблюдения, tsn";
-            chartArea1.AxisY.Title = "Полное электронное содержание, l1l2";
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.Title = "Время наблюдения, ч";
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.Title = "Полное электронное содержание,  TECU";
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.DataSource = this.chartBindingSource;
@@ -113,13 +115,15 @@
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.Black;
             series1.IsXValueIndexed = true;
             series1.Legend = "Legend1";
-            series1.Name = "l1l2";
-            series1.XValueMember = "tsn";
+            series1.Name = "YOSH";
+            series1.XValueMember = "hour";
             series1.YValueMembers = "l1l2";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Enabled = false;
             series2.IsXValueIndexed = true;
             series2.Legend = "Legend1";
             series2.Name = "Среднее значение";
@@ -129,6 +133,7 @@
             series2.SmartLabelStyle.IsMarkerOverlappingAllowed = true;
             series2.SmartLabelStyle.MaxMovingDistance = 5D;
             series2.XValueMember = "tsn";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             series2.YValueMembers = "l1l2_avg";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
@@ -140,10 +145,6 @@
             title1.Visible = false;
             this.chart1.Titles.Add(title1);
             // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.DefaultExt = "png";
-            // 
             // chartBindingSource
             // 
             this.chartBindingSource.DataMember = "Chart";
@@ -153,6 +154,10 @@
             // 
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "png";
             // 
             // chartTableAdapter
             // 

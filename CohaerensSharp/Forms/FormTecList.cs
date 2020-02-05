@@ -39,8 +39,8 @@ namespace CohaerensSharp.Forms
         private void tsbContent_Click(object sender, EventArgs e)
         {
             //int index = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-            int index = (int)dataGridView1.SelectedCells[0].Value;
-            FormTecContent form = new FormTecContent(index);
+            //int index = (int)dataGridView1.SelectedCells[0].Value;
+            FormTecContent form = new FormTecContent(getIndex());
             form.MdiParent = this.MdiParent;
             form.WindowState = FormWindowState.Maximized;
             form.Show();
@@ -48,8 +48,9 @@ namespace CohaerensSharp.Forms
 
         private void tsbGraph_Click(object sender, EventArgs e)
         {
-            int index = (int)dataGridView1.SelectedCells[0].Value;
-            FormTecChart form = new FormTecChart(index);
+            //int index = (int)dataGridView1.SelectedCells[0].Value;
+            //int index = int.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            FormTecChart form = new FormTecChart(getIndex());
             form.MdiParent = this.MdiParent;
             form.WindowState = FormWindowState.Maximized;
             form.Show();
@@ -58,6 +59,12 @@ namespace CohaerensSharp.Forms
         private void tsbSave_Click(object sender, EventArgs e)
         {
             this.tecListTableAdapter.Update(this.dataSet);
+        }
+
+        private int getIndex()
+        {
+            int index = int.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            return index;
         }
     }
 }

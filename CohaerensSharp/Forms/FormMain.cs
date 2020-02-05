@@ -19,11 +19,6 @@ namespace CohaerensSharp
             InitializeComponent();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void miPlace_Click(object sender, EventArgs e)
         {
             FormPlace form = new FormPlace();
@@ -68,16 +63,120 @@ namespace CohaerensSharp
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string text = System.IO.File.ReadAllText(openFileDialog.FileName);
-                string[] arr = text.Split('#');
-                string created = arr[1].Replace("Created on", "").Trim();
-                string sources = arr[2].Replace("Sources:", "").Trim();
-                string satellite = arr[3].Replace("Satellite:", "").Trim();
-                string interval = arr[4].Replace("Interval:", "").Trim();
-                string site = arr[5].Replace("Site:", "").Trim();
-                string position = arr[7].Replace("Position (X, Y, Z):", "").Trim();
-                string[] data = arr[10].Split('\n');
 
+                foreach (string file in openFileDialog.FileNames)
+                {
+
+                    string text = System.IO.File.ReadAllText(file);
+                    string[] arr = text.Split('#');
+                    string created = arr[1].Replace("Created on", "").Trim();
+                    string sources = arr[2].Replace("Sources:", "").Trim();
+                    string satellite = arr[3].Replace("Satellite:", "").Trim();
+                    string interval = arr[4].Replace("Interval:", "").Trim();
+                    string site = arr[6].Replace("Site:", "").Trim();
+                    string position = arr[7].Replace("Position (X, Y, Z):", "").Trim();
+                    string[] data = arr[11].Split('\n');
+                    string[] colums = arr[10].Replace(" Columns: ", "").Replace(" ", ",").Trim().Split(',');
+                    string[] types = data[0].Replace("(", "").Replace(")", "").Trim().Split(',');
+
+                    DataSet.TecListRow listRow;
+                    listRow = this.dataSet.TecList.NewTecListRow();
+                    listRow.Created = created;
+                    listRow.Sources = sources;
+                    listRow.Satellite = satellite;
+                    listRow.Interval = interval;
+                    listRow.Site = site;
+                    listRow.Position = position;
+
+                    this.dataSet.TecList.Rows.Add(listRow);
+                    this.tecListTableAdapter.Update(this.dataSet);
+
+                    List<string> col_list = new List<string>();
+                    for (int i = 0; i < types.Length; i++)
+                    {
+                        col_list.Add(colums[i]);
+                    }
+
+                    List<string> types_string = new List<string>();
+                    for (int i = 0; i < types.Length; i++)
+                    {
+                        types_string.Add(types[i].Replace("I", "").Replace("X", "").Replace("F", "").Replace(".", ","));
+                    }
+
+                    List<int> types_list = new List<int>();
+                    for (int i = 0; i < types.Length; i++)
+                    {
+                        double foo;
+                        double.TryParse(types_string[i], out foo);
+                        types_list.Add(Convert.ToInt32(foo));
+                    }
+
+                    const string col_tsn = "tsn";
+                    const string col_hour = "hour";
+                    const string col_el = "el";
+                    const string col_az = "az";
+                    const string col_l1l2 = "tec.l1l2";
+                    const string col_p1p2 = "tec.p1p2";
+
+
+                    for (int i = 1; i < data.Length - 1; i++)
+                    {
+
+                        DataSet.TecContentRow contentRow;
+                        contentRow = this.dataSet.TecContent.NewTecContentRow();
+                        contentRow.Id = listRow.Id;
+
+                        string row = data[i];
+                        int idx = 0;
+                        int offset = 0;
+                        for (int j = 0; j < types_list.Count(); j++)
+                        {
+                            offset = types_list[j];
+                            string cel = row.Substring(idx, offset).Replace(".", ",").Trim();
+                            idx = idx + offset;
+
+                            if (string.Equals(col_list[j], col_tsn))
+                            {
+                                contentRow.tsn = int.Parse(cel);
+                            }
+
+                            if (string.Equals(col_list[j], col_hour))
+                            {
+                                contentRow.hour = double.Parse(cel);
+                            }
+
+                            if (string.Equals(col_list[j], col_el))
+                            {
+                                contentRow.el = double.Parse(cel);
+                            }
+
+                            if (string.Equals(col_list[j], col_az))
+                            {
+                                contentRow.az = double.Parse(cel);
+                            }
+
+                            if (string.Equals(col_list[j], col_l1l2))
+                            {
+                                contentRow.l1l2 = double.Parse(cel);
+                            }
+
+                            if (string.Equals(col_list[j], col_p1p2))
+                            {
+                                contentRow.p1p2 = double.Parse(cel);
+                            }
+
+                        }
+                        this.dataSet.TecContent.Rows.Add(contentRow);
+
+                    }
+
+                    this.tecContentTableAdapter.Update(this.dataSet);
+
+                }
+
+                MessageBox.Show("Файл " + openFileDialog.FileName + " импортирован!");
+
+                /*
                 DataSet.TecListRow listRow;
                 listRow = this.dataSet.TecList.NewTecListRow();
                 listRow.Created = created;
@@ -93,13 +192,13 @@ namespace CohaerensSharp
 
                 for (int i = 1; i < data.Length - 1; i++)
                 {
-                    string tsn = data[i].Substring(0, 10).Trim();
-                    string hour = data[i].Substring(12, 14).Trim();
-                    string el = data[i].Substring(27, 10).Trim();
-                    string az = data[i].Substring(38, 11).Trim();
-                    string l1l2 = data[i].Substring(51, 21).Trim();
-                    string p1p2 = data[i].Substring(73, 10).Trim();
-                    string validity = data[i].Substring(83, 7).Trim();
+                    string tsn = data[i].Replace(".", ",").Substring(0, 10).Trim();
+                    string hour = data[i].Replace(".", ",").Substring(12, 14).Trim();
+                    string el = data[i].Replace(".", ",").Substring(27, 10).Trim();
+                    string az = data[i].Replace(".", ",").Substring(38, 11).Trim();
+                    string l1l2 = data[i].Replace(".", ",").Substring(51, 21).Trim();
+                    string p1p2 = data[i].Replace(".", ",").Substring(73, 10).Trim();
+                    string validity = data[i].Replace(".", ",").Substring(83, 7).Trim();
 
                     DataSet.TecContentRow contentRow;
                     contentRow = this.dataSet.TecContent.NewTecContentRow();
@@ -116,6 +215,7 @@ namespace CohaerensSharp
 
                 this.tecContentTableAdapter.Update(this.dataSet);
                 MessageBox.Show("Файл " + openFileDialog.FileName + " импортирован!");
+                */
             }
         }
 
@@ -190,6 +290,11 @@ namespace CohaerensSharp
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
             form.Show();
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
